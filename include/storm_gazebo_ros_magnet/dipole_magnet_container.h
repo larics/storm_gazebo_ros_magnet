@@ -40,9 +40,9 @@ class DipoleMagnetContainer {
 
   struct Magnet {
     bool calculate;
-    math::Vector3 moment;
-    math::Pose offset;
-    math::Pose pose;
+    ignition::math::Vector3d moment;
+    ignition::math::Pose3d offset;
+    ignition::math::Pose3d pose;
     std::uint32_t model_id;
   };
 
