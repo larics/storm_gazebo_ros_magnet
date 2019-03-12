@@ -95,7 +95,7 @@
       </link>
       <plugin name="dipole_magnet" filename="libstorm_gazebo_dipole_magnet.so">
           <bodyName>magnet</bodyName>
-          <dipole_moment>0 0 970</dipole_moment>
+          <dipole_moment>0 0 9700</dipole_moment>
           <xyzOffset>0 0 0</xyzOffset>
       </plugin>
     </model>        
