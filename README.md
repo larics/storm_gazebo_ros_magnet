@@ -1,12 +1,13 @@
 This is a Gazebo model plugin that uses the magnetic dipole-dipole model to compute the force and torque between multiple magnets. The plugin is enabled per model and looks for other models in the gazebo world that have the same plugin. It only simulates magnetic interactions between magnets (not other materials).
 
-The plugin requires the `bodyName` tag specifying which link is the actual magnet and `dipole_moment` which is a vector specifying the dipole moment of said magnet.
+The plugin requires the `bodyName` tag specifying which link is the actual magnet and `dipole_moment` which is a vector specifying the dipole moment of said magnet. Make sure you add `gain` field since electromagnet will not initialize in operation mode.
 
 Example:
 
       <plugin name="dipole_magnet" filename="libgazebo_dipole_magnet.so">
         <bodyName>magnet</bodyName>
         <dipole_moment>0 0 1.26</dipole_moment>
+        <gain>1.0</gain>
       </plugin>
 
 The magnitude of dipole moment of a cylindrical magnet can be computed using the formula:
@@ -24,6 +25,11 @@ The plugin is a ros package so the build process is the same as any other packag
 $ cd ~/catkin_ws/src
 $ git clone https://github.com/vustormlab/storm_gazebo_ros_magnet.git
 $ catkin_make -C ~/catkin_ws
+```
+
+Add following line to your `.bashrc` file so Gazebo can find the plugin:
+```bash
+export GAZEBO_PLUGIN_PATH=~/catkin_ws/build/storm_gazebo_magnet:${GAZEBO_PLUGIN_PATH}
 ```
 
 ## Running Example
